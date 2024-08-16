@@ -21,9 +21,11 @@ esperaAi('Conexão com o BD', rand(1, 3))
     console.log(resposta);
 })
 .then(() => {
-    console.log('Exibwe dados na tela');
+    console.log('Exibe dados na tela');
 })
 
-esperaAi('Frase 1', rand(1, 3))
-.then()
-.catch();
+.catch(e => {
+    console.log('ERRO:', e);
+});
+
+console.log('Isso será exibido antes de qualquer promisse.')
