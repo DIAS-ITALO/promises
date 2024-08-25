@@ -18,19 +18,38 @@ function esperaAi(msg, tempo) {
   });
 }
 
-//Promise.all Promise.race Promise.resolve Promise.reject
+function baixaPagina() {
+  const emCache = true;
 
-const promises = [
+  if(emCache) {
+    return Promise.resolve('Página em cache');
+  } else {
+    return esperaAi('Baixei a página', 3000);
+  }
+
+}
+
+baixaPagina()
+.then(dadosPagina => {
+  console.log(dadosPagina);
+})
+.catch(e => console.log('ERRO', e));
+
+//Promise.race 
+
+/* const promises = [
   esperaAi("Promise 1", rand(1, 5)),
   esperaAi("Promise 2", rand(1, 5)),
   esperaAi("Promise 3", rand(1, 5)),
   esperaAi(1000, rand(1, 5))
-];
+]; */
 
-Promise.race(promises)
+/* Promise.race(promises)
   .then(function (valor) {
     console.log(valor);
   })
   .catch(function (erro) {
     console.log(erro);
-  });
+  }); */
+
+//Promise.all Promise.race Promise.resolve Promise.reject
